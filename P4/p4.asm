@@ -6,6 +6,11 @@ section	.text
 	
 _start:                   
 	mov edx, msg		; edx = dirección de la cadena msg
+	
+	mov ebx, msg           ;ebx toma la direccion inicial de msg
+	mov esi, 25            ;esi toma direccion de 25
+	mov byte[ebx+esi], 'Z' ;suma las direcciones para llegar a z
+
 	call puts			; imprime cadena msg terminada en valor nulo (0)
 
 	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
