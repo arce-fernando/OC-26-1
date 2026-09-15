@@ -7,9 +7,9 @@ section	.text
 _start:                   
 	mov edx, msg		; edx = dirección de la cadena msg
 	
-	mov ebx, msg           ;ebx toma la direccion inicial de msg
-	mov esi, 25            ;esi toma direccion de 25
-	mov byte[ebx+esi], 'Z' ;suma las direcciones para llegar a z
+	mov ebx, msg            ;direccion inicial de msg
+	mov esi, 19             ;direccion de 't'
+	mov byte[ebx+esi*1],'%' ;*1=escala ;cambio de t por %
 
 	call puts			; imprime cadena msg terminada en valor nulo (0)
 
