@@ -1,5 +1,8 @@
 %include "pc_iox.inc"
 
+section .data
+    N dw 0   ;dw para 2 bytes en N
+
 section	.text
 
 	global _start       ;must be declared for using gcc
@@ -20,6 +23,16 @@ _start:                     ;tell linker entry point
     mov ax, bx;       se mueve bx al acumulador
     call pHex_w
     
+    mov al,10
+	call putchar
+
+                               ;;;;;; 2.c ;;;;;;;
+    mov al, bl
+    mov cl, 8
+    mul cl;         cl x al
+    mov [N],ax
+    call pHex_w
+
     mov al,10
 	call putchar
 
