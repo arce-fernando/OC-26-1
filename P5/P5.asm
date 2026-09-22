@@ -16,9 +16,9 @@ _start:                     ;tell linker entry point
     mov al,10
 	call putchar
                                ;;;;;; 2.b ;;;;;;;
-    PUSH bx;
+    push bx;
     mov ax, bx;       se mueve bx al acumulador
-    call pHex_dw
+    call pHex_w
     
     mov al,10
 	call putchar
