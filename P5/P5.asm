@@ -36,6 +36,14 @@ _start:                     ;tell linker entry point
     mov al,10
 	call putchar
 
+                               ;;;;;; 2.d ;;;;;;;
+    INC word[N]
+    mov ax, [N]
+    call pHex_w
+
+    mov al,10
+	call putchar
+
                                ;;;;;; Fin ;;;;;;;
 
     mov al,10
