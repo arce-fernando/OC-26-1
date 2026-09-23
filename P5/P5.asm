@@ -85,12 +85,12 @@ _start:                     ;tell linker entry point
 
     PUSHF
     POP ax
-    call pHex_dw;        se obtiene '0206'
+    call pHex_dw;        se obtiene '0286'
 
-    ;   0x0206 = 0000 0010 0000 0110 = bits activados -> 1, 2 y 9
-    ;   Al convertir en binario 0x0206, las banderas activas de acuerdo con el registro
-    ;   'EFLAGS' son Paridad (P, bit 2) y Habilitar Interrupciones (I, bit 9), mientras
-    ;   que el bit 1 es un bit reservado sin función de bandera.
+    ;   0x0206 = 0000 0010 1000 0110 = bits activados -> 1, 2, 7 y 9
+    ;   Al convertir en binario 0x0286, las banderas activas de acuerdo con el registro
+    ;   'EFLAGS' son Paridad (P, bit 2), Signo (S, bit 7) y Habilitar Interrupciones (I, bit 9),
+    ;   mientas que el bit 1 es un bit reservado sin función de bandera.
 
     mov al,10
 	call putchar
