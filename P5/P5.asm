@@ -12,34 +12,36 @@ _start:                     ;tell linker entry point
 
                                ;;;;;; 2.a ;;;;;;;
     mov ebx,0x5C4B2A60 
-    ADD ebx,0x2218597;  matricula = 2218597
+    ADD ebx,0x02218597;  matricula = 2218597
     mov eax, ebx
     call pHex_dw
     
     mov al,10
 	call putchar
                                ;;;;;; 2.b ;;;;;;;
-    push bx;
-    mov ax, bx;       se mueve bx al acumulador
-    call pHex_w
+    push ebx;
+    mov eax, ebx;       se mueve bx al acumulador
+    call pHex_dw
     
     mov al,10
 	call putchar
 
                                ;;;;;; 2.c ;;;;;;;
+    mov eax, 0
     mov al, bl
-    mov cl, 8
-    mul cl;         cl x al
+    mov ecx, 8
+    mul ecx;         cl x al
     mov [N],ax
-    call pHex_w
+    call pHex_dw
 
     mov al,10
 	call putchar
 
                                ;;;;;; 2.d ;;;;;;;
     INC word[N]
+    mov eax,0
     mov ax, [N]
-    call pHex_w
+    call pHex_dw
 
     mov al,10
 	call putchar
@@ -54,14 +56,14 @@ _start:                     ;tell linker entry point
 
     mov bl, ah;     se guarda temporalmente ah en bl
     mov ah, 0;      ah=0 para dejar el cociente sin residuos
-    call pHex_w
+    call pHex_dw
 
     mov al,10
 	call putchar
 
     mov al, bl;     regresa el residuo y se carga en al
     mov ah, 0
-    call pHex_w
+    call pHex_dw
 
     mov al,10
 	call putchar
@@ -70,9 +72,9 @@ _start:                     ;tell linker entry point
 	call putchar
 
                                ;;;;;; 2.f ;;;;;;;
-    ;considerando que 'ax' ya tiene el residuo
+    pop ax;         se recupera el residuo
     ADD ax, [N]
-    call pHex_w
+    call pHex_dw
 
     mov al,10
 	call putchar
@@ -83,7 +85,7 @@ _start:                     ;tell linker entry point
 
     PUSHF
     POP ax
-    call pHex_w;        se obtiene '0206'
+    call pHex_dw;        se obtiene '0206'
 
     ;   0x0206 = 0000 0010 0000 0110 = bits activados -> 1, 2 y 9
     ;   Al convertir en binario 0x0206, las banderas activas de acuerdo con el registro
@@ -95,7 +97,7 @@ _start:                     ;tell linker entry point
 
                                 ;;;;;; 2.h ;;;;;;;
     POP ax
-    call pHex_w
+    call pHex_dw
 
                                ;;;;;; Fin ;;;;;;;
 
