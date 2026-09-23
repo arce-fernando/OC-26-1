@@ -44,6 +44,28 @@ _start:                     ;tell linker entry point
     mov al,10
 	call putchar
 
+                               ;;;;;; 2.e ;;;;;;;
+    mov al,10
+	call putchar
+
+    mov ax, bx
+    mov cl, 0xFF
+    DIV cl;             al=cociente     ah=residuo
+
+    mov bl, ah;     se guarda temporalmente ah en bl
+    mov ah, 0;      ah=0 para dejar el cociente sin residuos
+    call pHex_w
+
+    mov al,10
+	call putchar
+
+    mov al, bl;     regresa el residuo y se carga en al
+    mov ah, 0
+    call pHex_w
+
+    mov al,10
+	call putchar
+
                                ;;;;;; Fin ;;;;;;;
 
     mov al,10
