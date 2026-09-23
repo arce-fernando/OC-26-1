@@ -93,8 +93,7 @@ _start:                     ;tell linker entry point
     mov al,10
 	call putchar
 
-                                ;;;;;; 2.g ;;;;;;;
-    PUSHF
+                                ;;;;;; 2.h ;;;;;;;
     POP ax
     call pHex_w
 
