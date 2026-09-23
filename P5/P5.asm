@@ -66,6 +66,17 @@ _start:                     ;tell linker entry point
     mov al,10
 	call putchar
 
+    mov al,10
+	call putchar
+
+                               ;;;;;; 2.f ;;;;;;;
+    ;considerando que 'ax' ya tiene el residuo
+    ADD ax, [N]
+    call pHex_w
+
+    mov al,10
+	call putchar
+
                                ;;;;;; Fin ;;;;;;;
 
     mov al,10
