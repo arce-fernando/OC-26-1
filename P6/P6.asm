@@ -27,5 +27,15 @@ _start:
     mov al,10
 	call putchar
 
+    ;===== c =====;
+    mov esi, 0x20D685F3 ;0010 0000 1101 0110 1000 0101 1111 0011
+                        ;0100 0000 0000 0100 0010 0000 0010 0001
+                        ;enmascaramiento para invertir los bits 0, 5, 13, 18 y 30, sin modificar los demás;
+    mov eax, esi
+    call pBin_dw
+
+    mov al,10
+	call putchar
+
 	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
 	int	0x80        	; llamada al sistema - fin de programa
