@@ -24,9 +24,6 @@ _start:
     mov ax, cx
     call pBin_w
     
-        ;desplazamos 03f48 3 veces a la izq para obtener fa40
-    
-
     mov al,10
 	call putchar
 
