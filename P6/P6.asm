@@ -20,12 +20,11 @@ _start:
 
     ;===== b =====;
     mov cx, 0x3F48  ;
+    SHL cx, 3
     call pBin_w
     
         ;desplazamos 03f48 3 veces a la izq para obtener fa40
     
-
-    ;FA40 ?
 
     mov al,10
 	call putchar
