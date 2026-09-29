@@ -31,6 +31,7 @@ _start:
     mov esi, 0x20D685F3 ;0010 0000 1101 0110 1000 0101 1111 0011
                         ;0100 0000 0000 0100 0010 0000 0010 0001
                         ;enmascaramiento para invertir los bits 0, 5, 13, 18 y 30, sin modificar los demás;
+    xor esi, mascara
     mov eax, esi
     call pBin_dw
 
