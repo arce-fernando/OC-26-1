@@ -18,5 +18,15 @@ _start:
     mov al,10
 	call putchar
 
+    ;===== b =====;
+    mov cx, 0x3F48
+    SHR cx, 1       ; 3F48 = 0-> 3F4 ->8 = 03F4
+    SHL cx, 2       ; 03F4 = 0 3 <- F4 <- 0 0 = F400
+
+    ;FA40 ?
+
+    mov al,10
+	call putchar
+
 	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
 	int	0x80        	; llamada al sistema - fin de programa
