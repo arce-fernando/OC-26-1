@@ -12,7 +12,7 @@ _start:
 	
     ;===== a =====;
     mov eax, 0x22446688 ; 0010 0010 0100 0100 0110 0110 1000 1000
-	ROR eax, 4          ; se recorre uno a la derecha para 0x82244668
+	ROR eax, 4          ; se recorre 4 a la derecha para 0x82244668
     call pBin_dw
 
     mov al,10
