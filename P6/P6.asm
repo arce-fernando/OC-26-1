@@ -11,17 +11,19 @@ section	.text
 _start:                   
 	
     ;===== a =====;
-    mov eax, 0x22446688
-	ROR eax, 1
-    call pBin_b
+    mov eax, 0x22446688 ; 0010 0010 0100 0100 0110 0110 1000 1000
+	ROR eax, 4          ; se recorre uno a la derecha para 0x82244668
+    call pBin_dw
 
     mov al,10
 	call putchar
 
     ;===== b =====;
-    mov cx, 0x3F48
-    SHR cx, 1       ; 3F48 = 0-> 3F4 ->8 = 03F4
-    SHL cx, 2       ; 03F4 = 0 3 <- F4 <- 0 0 = F400
+    mov cx, 0x3F48  ;
+    call pBin_w
+    
+        ;desplazamos 03f48 3 veces a la izq para obtener fa40
+    
 
     ;FA40 ?
 
