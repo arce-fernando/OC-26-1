@@ -95,5 +95,16 @@ _start:
     mov al,10
 	call putchar
 
+    ;===== k =====;
+    mov ebx, esi        ; se tiene esi y ebx
+    SHL esi, 1          ; esi*2
+    SHL ebx, 3          ; ebx*8
+    ADD esi, ebx        ; =esi*10
+    mov eax, esi
+    call pBin_dw
+
+    mov al,10
+	call putchar
+
 	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
 	int	0x80        	; llamada al sistema - fin de programa
