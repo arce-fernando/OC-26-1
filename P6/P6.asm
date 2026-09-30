@@ -54,5 +54,14 @@ _start:
     mov al,10
 	call putchar
 
+    ;===== f =====;
+    mov bp, 0x67DA      ; 0110 0111 1101 1010
+    xor bp, 0x4452      ; 0100 0100 0101 0010, bits 1, 4, 6, 10, 14
+    mov ax, bp          ; 0010 0011 1000 1000
+    call pBin_w
+
+    mov al,10
+	call putchar
+
 	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
 	int	0x80        	; llamada al sistema - fin de programa
