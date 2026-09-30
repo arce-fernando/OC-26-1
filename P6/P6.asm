@@ -96,7 +96,7 @@ _start:
 	call putchar
 
     ;===== k =====;
-    mov ebx, esi        ; se tiene esi y ebx
+    mov ebx, esi        ; copia esi en ebx
     SHL esi, 1          ; esi*2
     SHL ebx, 3          ; ebx*8
     ADD esi, ebx        ; =esi*10
