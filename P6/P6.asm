@@ -71,5 +71,13 @@ _start:
     mov al,10
 	call putchar
 
+    ;===== h =====;
+    SHR ebx, 5
+    mov eax, ebx
+    call pBin_dw
+
+    mov al,10
+	call putchar
+
 	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
 	int	0x80        	; llamada al sistema - fin de programa
