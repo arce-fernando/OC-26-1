@@ -5,6 +5,10 @@ section .data
 	msg_a_inst1 db "a) Ingrese un caracter (a-z): ",0
 	msg_a_menor db 10, "El caracter es menor a 'm'",10,0			;10 para salto de linea
     msg_a_mayor db 10, "El caracter es mayor o igual a 'm'",10,0
+	; b
+	msg_b_inst2 db "b) Ingrese un caracter (0-9) o (A-Z): ",0
+	msg_b_letra db 10, "El caracter es una letra",10,0
+	msg_b_numero db 10, "El caracter es un numero",10,0
 
 section	.text
 	global _start
@@ -29,6 +33,25 @@ _start:
     mov al,10
 	call putchar
 
+                                ;;;;;; b ;;;;;;;
+    mov edx, msg_b_inst2
+	call puts
+	
+	call getche
+	CMP al, '9'
+	JB .esnum
+
+	mov edx,msg_b_letra
+	call puts
+	JMP .fin_b
+
+.esnum:
+	mov edx, msg_b_numero
+	call puts
+
+.fin_b:
+    mov al,10
+	call putchar
                                 ;;;;;; fin ;;;;;;;
 	mov eax, 1
 	int 0x80
