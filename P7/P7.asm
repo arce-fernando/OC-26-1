@@ -9,6 +9,8 @@ section .data
 	msg_b_inst2 db "b) Ingrese un caracter (0-9) o (A-Z): ",0
 	msg_b_letra db 10, "El caracter es una letra",10,0
 	msg_b_numero db 10, "El caracter es un numero",10,0
+	; c
+	msg_c_inst3 db "c) Triangulo de asteriscos:",10,0
 
 section	.text
 	global _start
@@ -50,6 +52,64 @@ _start:
 	call puts
 
 .fin_b:
+    mov al,10
+	call putchar
+
+	                            ;;;;;; c ;;;;;;;
+    mov edx, msg_c_inst3
+	call puts
+
+	mov cx,6
+	CMP cx,0
+	JBE .fin_c
+
+	mov ebx,1
+
+.loop_arriba:
+	CMP bx, cx
+	JG .parte_abajo
+
+	mov edi,1
+
+.loop_arriba2:
+	CMP edi,ebx
+	JG .sig_ren_arriba
+	mov al,'*'
+	call putchar
+	INC edi
+	JMP .loop_arriba2
+
+.sig_ren_arriba:
+	mov al,10
+	call putchar
+	INC ebx
+	JMP .loop_arriba
+
+.parte_abajo:
+	mov ebx,ecx
+	DEC ebx
+
+.loop_abajo:
+	cmp ebx,1
+	JL .fin_c
+
+	mov edi,1
+
+.loop_abajo2:
+	CMP edi,ebx
+	JG .sig_ren_abajo
+	mov al,'*'
+	call putchar
+	INC edi
+	JMP .loop_abajo2
+
+.sig_ren_abajo:
+	mov al,10
+	call putchar
+	DEC ebx
+	JMP .loop_abajo
+	
+.fin_c:
     mov al,10
 	call putchar
                                 ;;;;;; fin ;;;;;;;
