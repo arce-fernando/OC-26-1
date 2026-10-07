@@ -11,6 +11,12 @@ section .data
 	msg_b_numero db 10, "El caracter es un numero",10,0
 	; c
 	msg_c_inst3 db "c) Triangulo de asteriscos:",10,0
+	; d
+	msg_d_inst4 db "d) Ingresa 10 caracteres:",10,0
+	msg_d_resutlados db 10, "Datos capturados:",10,0
+
+section .bss
+	arreglo resb 10			; 10 bytes para el arreglo
 
 section	.text
 	global _start
@@ -112,6 +118,37 @@ _start:
 .fin_c:
     mov al,10
 	call putchar
+
+	                            ;;;;;; d ;;;;;;;
+    mov edx, msg_d_inst4
+	call puts
+	
+	mov ecx,10
+	mov esi,arreglo
+
+.loop_captura:
+	call getche
+	mov [esi],al
+	INC esi
+	loop .loop_captura
+
+	mov edx,msg_d_resutlados
+	call puts
+
+	mov ecx,10
+	mov esi,arreglo
+
+.loop_mostrar:
+	mov al,[esi]
+	call putchar
+	mov al,10
+	call putchar
+	INC esi
+	loop .loop_mostrar
+
+    mov al,10
+	call putchar
+
                                 ;;;;;; fin ;;;;;;;
 	mov eax, 1
 	int 0x80
