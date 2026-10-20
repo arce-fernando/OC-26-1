@@ -51,8 +51,6 @@ _start:
         sub ecx, 1h
     jnz .loop2
 
-
-
     mov al,10
 	call putchar
     
