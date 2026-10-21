@@ -111,7 +111,7 @@ mostrar_v:
         add al, 30h
 
         push ecx
-        call putchar
+        call pHex_n
         pop ecx
     
         inc ebx
