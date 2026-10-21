@@ -3,10 +3,11 @@
 section .data
     N equ 10
 
-    msg_1 db "Ingrese valores del vector 1 (0-9): ",0
+    msg_1 db 10,"Ingrese valores del vector 1 (0-9): ",0
     msg_2 db "Ingrese valores del vector 2 (0-9): ",0
     msg_3 db 10,"Valores del vector 1: ",0
     msg_4 db 10,"Valores del vector 2: ",0
+    msg_5 db 10,"Sumatoria de vector 1 y vector 2: ",0
 
 section .bss
     v1 resb N
@@ -56,11 +57,20 @@ _start:
     mov al, 10
     call putchar
 
-
                                 ;;;;;; c ;;;;;;;
+    mov edx, msg_5
+    call puts
     mov ebx, v1
     mov edx, v2
     mov ecx, N
+    call suma_v
+
+    mov ebx, v1
+    mov ecx, N
+    call mostrar_v
+
+    mov al, 10
+    call putchar
 
                                 ;;;;;; fin ;;;;;;;
 	mov eax, 1
