@@ -55,6 +55,11 @@ _start:
 
     mov al, 10
     call putchar
+
+
+                                ;;;;;; c ;;;;;;;
+    mov
+
                                 ;;;;;; fin ;;;;;;;
 	mov eax, 1
 	int 0x80
