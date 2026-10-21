@@ -77,7 +77,7 @@ _start:
 	int 0x80
 
                             ;;;;;; procedimientos ;;;;;;
-    ;===== Captura vector =====
+;===== Captura vector =====
 captura_v:
     push ecx
     push ebx
@@ -101,7 +101,7 @@ captura_v:
 	call putchar
 
 
-        ;===== Mostrar vector =====
+;===== Mostrar vector =====
 mostrar_v:
     push ecx
     push ebx
@@ -126,7 +126,7 @@ mostrar_v:
 	call putchar
 
 
-        ;===== Sumar vectores =====
+;===== Sumar vectores =====
 suma_v:
     push ecx
     push ebx
