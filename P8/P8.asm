@@ -34,8 +34,9 @@ _start:
     mov al, 10
     call putchar
 
-
-    
+                                ;;;;;; b ;;;;;;;
+    ;===== Mostrar v1 =====
+    call mostrar_v
 
                                 ;;;;;; fin ;;;;;;;
 	mov eax, 1
@@ -57,6 +58,31 @@ captura_v:
         inc ebx
         sub ecx, 1h
         jnz .loop
+    
+    pop ebx
+    pop ecx
+    ret
+
+    mov al,10
+	call putchar
+
+
+        ;===== Mostrar vector =====
+mostrar_v:
+    push ecx
+    push ebx
+
+    .loop2:
+        mov al, [ebx]
+        add al, 30h
+
+        push ecx
+        call putchar
+        pop ecx
+    
+        inc ebx
+        sub ecx, 1h        
+        jnz .loop2
     
     pop ebx
     pop ecx
