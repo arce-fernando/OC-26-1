@@ -5,6 +5,7 @@ section .data
 
     msg_a db "Ingrese valores del vector 1 (0-9): ",0
     msg_b db "Ingrese valores del vector 2 (0-9): ",0
+    msg_c db 10,"Valores del vector 1: ",0
 
 section .bss
     v1 resb N
@@ -36,6 +37,11 @@ _start:
 
                                 ;;;;;; b ;;;;;;;
     ;===== Mostrar v1 =====
+    mov edx, msg_c
+    call puts
+
+    mov ecx, N
+    mov ebx, v1
     call mostrar_v
 
                                 ;;;;;; fin ;;;;;;;
