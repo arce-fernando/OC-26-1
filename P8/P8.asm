@@ -3,9 +3,10 @@
 section .data
     N equ 10
 
-    msg_a db "Ingrese valores del vector 1 (0-9): ",0
-    msg_b db "Ingrese valores del vector 2 (0-9): ",0
-    msg_c db 10,"Valores del vector 1: ",0
+    msg_1 db "Ingrese valores del vector 1 (0-9): ",0
+    msg_2 db "Ingrese valores del vector 2 (0-9): ",0
+    msg_3 db 10,"Valores del vector 1: ",0
+    msg_4 db 10,"Valores del vector 2: ",0
 
 section .bss
     v1 resb N
@@ -16,7 +17,7 @@ section	.text
 _start:
                                 ;;;;;; a ;;;;;;;
     ;===== Vector 1 =====
-    mov edx, msg_a
+    mov edx, msg_1
     call puts
     mov ecx, N
     mov ebx, v1
@@ -26,7 +27,7 @@ _start:
     call putchar
 
     ;===== Vector 2 =====
-    mov edx, msg_b
+    mov edx, msg_2
     call puts
     mov ecx, N
     mov ebx, v2
@@ -37,13 +38,23 @@ _start:
 
                                 ;;;;;; b ;;;;;;;
     ;===== Mostrar v1 =====
-    mov edx, msg_c
+    mov edx, msg_3
     call puts
 
     mov ecx, N
     mov ebx, v1
     call mostrar_v
 
+    ;===== Mostrar v2 =====
+    mov edx, msg_4
+    call puts
+
+    mov ecx, N
+    mov ebx, v2
+    call mostrar_v
+
+    mov al, 10
+    call putchar
                                 ;;;;;; fin ;;;;;;;
 	mov eax, 1
 	int 0x80
