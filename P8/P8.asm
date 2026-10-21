@@ -81,6 +81,7 @@ _start:
     mov edx, v2
     mov ecx, N
     call prodct_esc
+    call pHex_n
 
     mov al, 10
     call putchar
@@ -167,19 +168,23 @@ prodct_esc:
     push ebx
     push edx
 
-    mov eax, 0h
+    xor eax, eax
 
     .loop_prodct:
-        push eax
         mov al, [ebx]
         mov dl, [edx]
 
         mul dl      ; al * dl
 
+        push edx
         movzx edx, ax
-        pop eax
+        add eax, edx
+        pop edx
+
         inc ebx
         inc edx
+        sub ecx, 1h
+        jnz .loop_prodct
 
         pop edx
         pop ebx
