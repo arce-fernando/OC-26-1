@@ -58,7 +58,9 @@ _start:
 
 
                                 ;;;;;; c ;;;;;;;
-    mov
+    mov ebx, v1
+    mov edx, v2
+    mov ecx, N
 
                                 ;;;;;; fin ;;;;;;;
 	mov eax, 1
@@ -112,3 +114,25 @@ mostrar_v:
 
     mov al,10
 	call putchar
+
+
+        ;===== Sumar vectores =====
+suma_v:
+    push ecx
+    push ebx
+    push edx
+
+    .loopsum:
+        mov al, [ebx]
+        add al, [edx]
+        mov [ebx], al
+
+        inc ebx
+        inc edx
+        sub ecx, 1h
+        jnz .loopsum
+    
+    pop edx
+    pop ebx
+    pop ecx
+    ret
