@@ -14,47 +14,53 @@ section	.text
 	global _start
 _start:
                                 ;;;;;; a ;;;;;;;
-    ;===== vector 1 =====
-    mov ecx, N
+    ;===== Vector 1 =====
     mov edx, msg_a
-	call puts
-    mov edi, v1
-
-    .loop1:
-        push ecx
-        call getche
-        pop ecx
-        sub eax, 30h
-        mov [edi], al
-        inc edi
-        mov ebx, eax
-        sub ecx, 1h
-    jnz .loop1
-
-    mov al,10
-	call putchar
-
-    ;===== vector 2 =====
+    call puts
     mov ecx, N
+    mov ebx, v1
+    call captura_v
+
+    mov al, 10
+    call putchar
+
+    ;===== Vector 2 =====
     mov edx, msg_b
-	call puts
-    mov edi, v2
+    call puts
+    mov ecx, N
+    mov ebx, v2
+    call captura_v
 
-    .loop2:
-        push ecx
-        call getche
-        pop ecx
-        sub eax, 30h
-        mov [edi], al
-        inc edi
-        mov ebx, eax
-        sub ecx, 1h
-    jnz .loop2
+    mov al, 10
+    call putchar
 
-    mov al,10
-	call putchar
+
     
 
                                 ;;;;;; fin ;;;;;;;
 	mov eax, 1
 	int 0x80
+
+                            ;;;;;; procedimientos ;;;;;;
+    ;===== Captura vector =====
+captura_v:
+    push ecx
+    push ebx
+
+    .loop:
+        push ecx
+        call getche
+        pop ecx
+
+        sub eax, 30h
+        mov [ebx], al
+        inc ebx
+        sub ecx, 1h
+        jnz .loop
+    
+    pop ebx
+    pop ecx
+    ret
+
+    mov al,10
+	call putchar
