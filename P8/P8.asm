@@ -8,6 +8,7 @@ section .data
     msg_3 db 10,"Valores del vector 1: ",0
     msg_4 db 10,"Valores del vector 2: ",0
     msg_5 db 10,"Sumatoria de vector 1 y vector 2: ",0
+    msg_6 db 10,"Producto escalar de vector 1 y vector 2: ",0
 
 section .bss
     v1 resb N
@@ -68,6 +69,18 @@ _start:
     mov ebx, v1
     mov ecx, N
     call mostrar_v
+
+    mov al, 10
+    call putchar
+
+                                ;;;;;; d ;;;;;;;
+    mov edx, msg_6
+    call puts
+
+    mov ebx, v1
+    mov edx, v2
+    mov ecx, N
+    call prodct_esc
 
     mov al, 10
     call putchar
@@ -146,3 +159,29 @@ suma_v:
     pop ebx
     pop ecx
     ret
+
+
+;===== Producto escalar =====
+prodct_esc:
+    push ecx
+    push ebx
+    push edx
+
+    mov eax, 0h
+
+    .loop_prodct:
+        push eax
+        mov al, [ebx]
+        mov dl, [edx]
+
+        mul dl      ; al * dl
+
+        movzx edx, ax
+        pop eax
+        inc ebx
+        inc edx
+
+        pop edx
+        pop ebx
+        pop ecx
+        ret
