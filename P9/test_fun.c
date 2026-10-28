@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int suma(int num1, int num 2);
+int suma(int num1, int num2);
 int mystrcmp(char *str1, char *str2);
 int mystrlen (char *str);
 int getBit(int value, int numbit);
