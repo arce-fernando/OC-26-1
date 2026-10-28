@@ -22,8 +22,36 @@ suma:
 mystrcmp:
     push ebp
     mov ebp, esp
+    push esi
+    push edi
 
+    mov esi, [ebp+8]   ;primera cad
+    mov edi, [ebp+12]  ;segunda cad
+
+COMPARAR:
+    mov al, [esi]
+    cmp al, [edi]
+    jne DIFIERE
+
+    cmp al, 0
+    je IGUAL
+
+    inc esi
+    inc edi
+    jmp COMPARAR
+
+DIFIERE:
+    mov eax, 1
+    jmp FIN
+
+IGUAL:
+    mov eax, 0
+
+FIN:
+    pop edi
+    pop esi
+    mov esp, ebp
     pop ebp
     ret
-    
+
 ;;==================================;;
