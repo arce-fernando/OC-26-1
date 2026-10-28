@@ -5,6 +5,8 @@ section .text
     global getBit
     global setBit
 
+;;==================================;;
+
 suma:
     push ebp
     mov ebp, esp
@@ -14,3 +16,14 @@ suma:
 
     pop ebp
     ret
+
+;;==================================;;
+
+mystrcmp:
+    push ebp
+    mov ebp, esp
+
+    pop ebp
+    ret
+    
+;;==================================;;
