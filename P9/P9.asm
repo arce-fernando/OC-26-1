@@ -95,7 +95,7 @@ getBit:
 
 ;;==================================;;
 
-setBit
+setBit:
     push ebp
     mov ebp, esp
 
