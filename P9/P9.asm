@@ -94,3 +94,19 @@ getBit:
     ret
 
 ;;==================================;;
+
+setBit
+    push ebp
+    mov ebp, esp
+
+    mov eax, [ebp+8]
+    mov ecx, [ebp+12]
+
+    mov edx, 1
+    shl edx, cl
+    or eax, edx
+
+    pop ebp
+    ret
+
+;;==================================;;
