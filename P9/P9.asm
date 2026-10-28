@@ -55,3 +55,27 @@ FIN:
     ret
 
 ;;==================================;;
+
+mystrlen:
+    push ebp
+    mov ebp, esp
+    push esi
+    
+    mov esi, [ebp+8]
+    mov eax, 0
+
+CONTAR:
+    cmp byte[esi], 0
+    je FIN_len
+
+    inc eax
+    inc esi
+    jmp CONTAR
+
+FIN_len:
+    pop esi
+    mov esp, ebp
+    pop ebp
+    ret
+
+;;==================================;;
