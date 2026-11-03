@@ -19,7 +19,19 @@ my_putchar: pushad
 
 ;;==================================;;
 
-pBin8b: 
+pBin8b: push ebp
+        mov ebp, esp
+
+        mov eax, [esp+8]
+        mov ecx 8
+
+        .loop:
+               shl al, 1
+               push eax
+
+        pop ebp
+        ret
+
 
 pBin16b: 
 
