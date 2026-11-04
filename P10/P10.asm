@@ -46,7 +46,7 @@ pBin16b: push ebp
          mov ebp, esp
 
          mov eax, [esp+8]
-         mov ecx, 8
+         mov ecx, 16    ; iteraciones
 
          .loop2:
                 shl ax, 1
