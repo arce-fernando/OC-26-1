@@ -3,7 +3,7 @@
 void pBin8b(int dato);
 void pBin16b(int dato);
 void pBin32b(int dato);
-void pBin64b(int dato);
+void pBin64b(long long dato);
 
 int main(){
     int dato;

@@ -103,11 +103,28 @@ pBin64b: push ebp
                      jnc .print4alta
                      mov al, '1'
 
-         .print64_alta:
+         .print4alta:
                         call my_putchar
                         pop ecx
                         pop eax
                         loop .loop4alta
+         
+         mov eax, [ebp+8]
+         mov ecx, 32
+
+         .loop4baja: 
+                     shl eax, 1
+                     push eax
+                     push ecx
+                     mov al, '0'
+                     jnc .print4baja
+                     mov al, '1'
+        
+         .print4baja:
+                      call my_putchar
+                      pop ecx
+                      pop eax
+                      loop .loop4baja
 
          pop ebp
          ret
