@@ -65,6 +65,28 @@ pBin16b: push ebp
         pop ebp
         ret
 
-pBin32b: 
+pBin32b: push ebp
+         mov ebp, esp
+
+         mov eax, [esp+8]
+         mov ecx, 32    ; iteraciones
+
+         .loop3:
+                shl eax, 1
+                push eax
+                push ecx
+
+                mov al, '0'
+                jnc .print3
+                mov al, '1'
+        
+        .print3:
+               call my_putchar
+               pop ecx
+               pop eax
+               loop .loop3
+        
+        pop ebp
+        ret
 
 pBin64b: 
