@@ -42,6 +42,8 @@ pBin8b: push ebp
         pop ebp
         ret
 
+;;==================================;;
+
 pBin16b: push ebp
          mov ebp, esp
 
@@ -64,6 +66,8 @@ pBin16b: push ebp
         
         pop ebp
         ret
+
+;;==================================;;
 
 pBin32b: push ebp
          mov ebp, esp
@@ -88,6 +92,8 @@ pBin32b: push ebp
         
         pop ebp
         ret
+
+;;==================================;;
 
 pBin64b: push ebp
          mov ebp, esp
