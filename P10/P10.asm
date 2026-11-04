@@ -93,10 +93,21 @@ pBin64b: push ebp
          mov ebp, esp
 
          mov eax, [ebp+12]
-         call .alto32
+         mov ecx, 32
 
-         mov eax, [ebp+8]
-         call .bajo32
+         .loop4alta: 
+                     shl eax, 1
+                     push eax
+                     push ecx
+                     mov al, '0'
+                     jnc .print4alta
+                     mov al, '1'
+
+         .print64_alta:
+                        call my_putchar
+                        pop ecx
+                        pop eax
+                        loop .loop4alta
 
          pop ebp
          ret
