@@ -89,4 +89,14 @@ pBin32b: push ebp
         pop ebp
         ret
 
-pBin64b: 
+pBin64b: push ebp
+         mov ebp, esp
+
+         mov eax, [ebp+12]
+         call .alto32
+
+         mov eax, [ebp+8]
+         call .bajo32
+
+         pop ebp
+         ret
