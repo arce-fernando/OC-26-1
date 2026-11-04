@@ -28,21 +28,17 @@ pBin8b: push ebp
         .loop1:
                shl al, 1
                push eax
+               push ecx
                mov al, '0'
                jnc .print1
                mov al, '1'
         
         .print1:
                call my_putchar
+               pop ecx
                pop eax
                loop .loop1
-               mov al, 10
-               call my_putchar
         
-        mov al, 10
-        call my_putchar
-
-        pop ecx
         pop ebp
         ret
 
