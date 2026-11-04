@@ -52,9 +52,9 @@ pBin16b: push ebp
                 shl ax, 1
                 push eax
                 push ecx
-                mov ax, '0'
+                mov al, '0'
                 jnc .print2
-                mov ax, '1'
+                mov al, '1'
         
         .print2:
                call my_putchar
