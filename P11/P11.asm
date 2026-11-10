@@ -7,15 +7,16 @@ section .text
 
 str_len:    push ebp
             mov ebp, eax
-            
-.next:      mov edx, [ebp+8]
+            mov edx, [ebp+8]
             mov eax, 0
-            cmp [edx], 0
-            je fin
+
+.next:      cmp [edx], 0
+            je .fin1
             inc eax
+            inc edx
             jmp .next
 
-            pop ebp
+.fin1:      pop ebp
             ret
 
 ;;==================================;;

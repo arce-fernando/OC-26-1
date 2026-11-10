@@ -6,8 +6,8 @@ int clrBit(int value, int nbit);
 
 int main(){
 
-    char str[];
-    int op=0, longitud;
+    char str[30];
+    int op=0, longitud=0;
 
     puts("");
     do{
@@ -15,13 +15,24 @@ int main(){
         puts(" 1. Longitud de cadena.");
         puts(" 2. Copiar rango de una cadena.");
         puts(" 3. Cambiar un bit específico a 0.");
-    }while(op!=4);
-
-
+        printf("Ingresa una opción: "); scanf("%d",&op);
+        puts("");
+        switch(op){
+            case 1:
+                    
     printf("Ingresa una cadena: "); scanf("%s",str);
     longitud = str_len(str);
     
     /*Resultados*/
     printf("La longitud de %s es de: %d",str,longitud);
+
+    
+            case 2:
+            case 3:
+            default: putsbreak;
+        }
+
+    }while(op!=4);
+
 
 return 0;}
