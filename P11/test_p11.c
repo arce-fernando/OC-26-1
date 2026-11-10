@@ -26,10 +26,10 @@ int main(){
     /*Resultados*/
     printf("La longitud de %s es de: %d",str,longitud);
 
-    
+
             case 2:
             case 3:
-            default: putsbreak;
+            default: puts("Ingresa una opción válidabreak;
         }
 
     }while(op!=4);
