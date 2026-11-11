@@ -30,13 +30,16 @@ int main(){
                     str_mid(str_out, str, start, end);
                     printf("Cadena resultante: %s\n\n",str_out);
                     break;
-            case 3: break;
-            case 4: break;
+            case 3: printf("Ingresa un valor: "); scanf("%d",&valor);
+                    printf("Ingresa el numero de bit a cambiar a 0: "); scanf("%d",nbit);
+                    res = clrBit(valor, nbit);
+                    printf("Valor ingresado: %d\nNuevo valor: %d",valor,nbit);
+                    break;
+            case 4: puts("Saliendo...");
+                    break;
             default: puts("Ingresa una opción válida"); break;
         }
 
     }while(op!=4);
-
-    puts("Saliendo...");
 
 return 0;}
