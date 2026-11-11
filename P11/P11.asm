@@ -55,6 +55,18 @@ str_mid:    push ebp
 
 ;;==================================;;
 
-clrBit:
+clrBit:     push ebp
+            mov ebp, esp
+            
+            mov eax, [ebp+8]
+            mov ecx, [ebp+12]
+
+            mov edx, 1     ; 0001
+            shl edx, 1
+            not edx
+            and eax, edx
+
+            pop ebp
+            ret
 
 ;;==================================;;
