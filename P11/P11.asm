@@ -6,7 +6,7 @@ section .text
 ;;==================================;;
 
 str_len:    push ebp
-            mov ebp, eax
+            mov ebp, esp
             mov edx, [ebp+8]
             mov eax, 0
 

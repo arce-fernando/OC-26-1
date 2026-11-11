@@ -7,7 +7,8 @@ int clrBit(int value, int nbit);
 int main(){
 
     char str[30];
-    int op=0, longitud=0;
+    char str_out[30];
+    int op=0, longitud=0, start=0, end=0, valor=0, nbit=0, res=0;
 
     puts("");
     do{
@@ -18,18 +19,18 @@ int main(){
         printf("Ingresa una opción: "); scanf("%d",&op);
         puts("");
         switch(op){
-            case 1:
-                    
-    printf("Ingresa una cadena: "); scanf("%s",str);
-    longitud = str_len(str);
-    
-    /*Resultados*/
-    printf("La longitud de %s es de: %d",str,longitud);
-
-
-            case 2:
+            case 1: printf("Ingresa una cadena: "); scanf("%s",str);
+                    longitud = str_len(str);
+                    printf("La longitud de %s es de: %d\n\n",str,longitud);
+                    break;
+            case 2: printf("Ingresa una cadena: "); scanf("%s",str);
+                    printf("Ingresa el índice del inicio: "); scanf("%d",&start);
+                    printf("Ingresa el índice del final: "); scanf("%d",&end);
+                    str_mid(str_out, str, start, end);
+                    printf("Cadena resultante: %s\n\n",str_out);
+                    break;
             case 3:
-            default: puts("Ingresa una opción válidabreak;
+            default: puts("Ingresa una opción válida"); break;
         }
 
     }while(op!=4);
