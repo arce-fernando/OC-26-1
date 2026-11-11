@@ -62,7 +62,7 @@ clrBit:     push ebp
             mov ecx, [ebp+12]
 
             mov edx, 1     ; 0001
-            shl edx, 1
+            shl edx, cl
             not edx
             and eax, edx
 
