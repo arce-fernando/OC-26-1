@@ -10,7 +10,7 @@ str_len:    push ebp
             mov edx, [ebp+8]
             mov eax, 0
 
-.next:      cmp [edx], 0
+.next:      cmp byte[edx], 0
             je .fin1
             inc eax
             inc edx

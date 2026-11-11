@@ -16,6 +16,7 @@ int main(){
         puts(" 1. Longitud de cadena.");
         puts(" 2. Copiar rango de una cadena.");
         puts(" 3. Cambiar un bit específico a 0.");
+        puts(" 4. Salir.");
         printf("Ingresa una opción: "); scanf("%d",&op);
         puts("");
         switch(op){
@@ -29,11 +30,13 @@ int main(){
                     str_mid(str_out, str, start, end);
                     printf("Cadena resultante: %s\n\n",str_out);
                     break;
-            case 3:
+            case 3: break;
+            case 4: break;
             default: puts("Ingresa una opción válida"); break;
         }
 
     }while(op!=4);
 
+    puts("Saliendo...");
 
 return 0;}
