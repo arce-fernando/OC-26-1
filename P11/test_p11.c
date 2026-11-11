@@ -33,7 +33,8 @@ int main(){
             case 3: printf("Ingresa un valor: "); scanf("%d",&valor);
                     printf("Ingresa el numero de bit a cambiar a 0: "); scanf("%d",&nbit);
                     res = clrBit(valor, nbit);
-                    printf("Valor ingresado: %d\nNuevo valor: %d\n\n",valor,res);
+                    printf("Valor ingresado: %d\n",valor);
+                    printf("Nuevo valor: %d\n\n",res);
                     break;
             case 4: puts("Saliendo...");
                     break;
