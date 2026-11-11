@@ -9,6 +9,7 @@ int main(){
     char str[30];
     char str_out[30];
     int op=0, longitud=0, start=0, end=0, valor=0, nbit=0, res=0;
+    int cond=0;
 
     puts("");
     do{
@@ -25,8 +26,18 @@ int main(){
                     printf("La longitud de %s es de: %d\n\n",str,longitud);
                     break;
             case 2: printf("Ingresa una cadena: "); scanf("%s",str);
-                    printf("Ingresa el índice del inicio: "); scanf("%d",&start);
-                    printf("Ingresa el índice del final: "); scanf("%d",&end);
+                    do{
+                        printf("Ingresa el índice del inicio: "); scanf("%d",&start);
+                        printf("Ingresa el índice del final: "); scanf("%d",&end);
+                        puts("");
+                        if(start<end){
+                            cond=1;
+                        }else{
+                            puts("Ingresa un rango válido.");
+                        }
+                    
+                    }while(cond!=1);
+
                     str_mid(str_out, str, start, end);
                     printf("Cadena resultante: %s\n\n",str_out);
                     break;
