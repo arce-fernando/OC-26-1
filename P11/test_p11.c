@@ -30,7 +30,7 @@ int main(){
                         printf("Ingresa el índice del inicio: "); scanf("%d",&start);
                         printf("Ingresa el índice del final: "); scanf("%d",&end);
                         puts("");
-                        if(start<end){
+                        if(start<=end && start>=0){
                             cond=1;
                         }else{
                             puts("Ingresa un rango válido.");
