@@ -24,29 +24,31 @@ str_len:    push ebp
 str_mid:    push ebp
             mov ebp, esp
             push ebx
+            push edi
 
-            mov edx, [ebp+8] ;str_out
+            mov edi, [ebp+8] ;str_out
             mov ebx, [ebp+12] ;str
             mov ecx, [ebp+16] ;start
-            mov eax, [ebp+20] ; end
+            mov edx, [ebp+20] ; end
 
             add ebx, ecx
 
-.copia:     cmp ecx, eax
+.copia:     cmp ecx, edx
             jg .fin2
 
             mov al, [ebx]
-            mov [edx], al
+            mov [edi], al
 
             cmp al, 0
             je .fin2
 
             inc ebx
-            inc edx
+            inc edi
             inc ecx
             jmp .copia
 
-.fin2:      mov byte[edx], 0
+.fin2:      mov byte[edi], 0
+            pop edi
             pop ebx
             pop ebp
             ret
