@@ -21,7 +21,18 @@ str_len:    push ebp
 
 ;;==================================;;
 
-str_mid:
+str_mid:    push ebp
+            mov ebp, esp
+            push ebx
+
+            mov edx, [ebp+8]
+            mov ebx, [ebp+12]
+            mov ecx, [ebp+16]
+            mov eax, [ebp+20]
+            
+.fin2:      pop ebx
+            pop ebp
+            ret
 
 ;;==================================;;
 
